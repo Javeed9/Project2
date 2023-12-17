@@ -1,8 +1,8 @@
 import React from 'react'
 import ContactCard from './ContactCard'
-import photo1 from "../../static/saida.jpg"
-import photo2 from "../../static/abdullah.jpg"
-import photo3 from "../../static/irfan.jpg"
+import photo1 from "./img/saida.jpg"
+import photo2 from "./img/abdullah.jpg"
+import photo3 from "./img/irfan.jpg"
 
 const details = [
   {

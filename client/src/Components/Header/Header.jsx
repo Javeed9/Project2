@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
-import logo from '../../static/logo.png'
+import logo from './img/logo.png'
+import { GrMapLocation } from "react-icons/gr";
 
 export default function Header() {
     return (
@@ -39,7 +40,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             
-                            <li className='my-auto'> <a target="_blank" href="https://maps.app.goo.gl/1kiyZvMoPynv2GFV8">Map</a></li>
+                            <li className='my-auto'> <a target="_blank" href="https://maps.app.goo.gl/1kiyZvMoPynv2GFV8"><GrMapLocation /></a></li>
                         </ul>
                     <div className="flex items-center lg:order-2">
                         <Link

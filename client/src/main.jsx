@@ -4,11 +4,12 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import './index.css'
 import Layout from './Layout.jsx'
 import Contact from './Components/Contact/Contact.jsx'
+import Catalogue from './Components/Catalogue/Catalogue.jsx'
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-      {/* <Route path='' element={<Catalog />} /> */}
+      <Route path='' element={<Catalogue />} />
       <Route path='contact' element={<Contact />} />
     </Route>
   )
