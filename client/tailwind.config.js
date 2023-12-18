@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        typing: 'typing 5s steps(6), blink 1s infinite',
+        typing: 'typing 5s steps(27) infinite, blink 1s infinite',
       },
       keyframes: {
         typing: {
@@ -15,7 +15,7 @@ export default {
             width: '0'
           },
           to: {
-            width: '13ch'
+            width: '27ch'
           },
         },
         blink: {
