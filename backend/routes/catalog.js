@@ -18,12 +18,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/', upload.single('image'), (req, res, next) => {
-
+    console.log("called");
 	var obj = {
 		category: req.body.category,
 		description: req.body.description,
 		img: {
-			data: fs.readFileSync(path.join(__dirname + '../uploads' + req.file.filename)),
+			data: fs.readFileSync(path.join(__dirname + '\\uploads')),
 			contentType: 'image/png'
 		}
 	}

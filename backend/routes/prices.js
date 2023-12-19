@@ -7,10 +7,7 @@ dotenv.config();
 
 router.post('/', authenticateToken, async (req,res) => {
     try {
-        if (process.env.SECRET_KEY !== req.headers.key) {
-            res.status(404).json("wrong key")
-            throw new Error("Wrong key")
-        }
+        console.log(req);
         const existingPrice = await priceModel.findOne({});
 
         if (existingPrice) {

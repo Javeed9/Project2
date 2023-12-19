@@ -12,10 +12,13 @@ connectDb()
 app.use(express.json({ extended: true })); // Body parser
 
 const prices = require('./routes/prices')
-app.use('/prices',prices)
+app.use('/prices', prices)
 
 const login = require('./routes/login')
-app.use('/login',login)
+app.use('/login', login)
+
+const catalog = require('./routes/catalog')
+app.use('/catalog', catalog)
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`);
