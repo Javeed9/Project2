@@ -27,7 +27,7 @@ const details = [
 
 function Contact() {
   return (
-    <div className='flex flex-wrap justify-evenly'>
+    <div className='flex flex-wrap justify-evenly m-10'>
       {details.map( obj => {
         return (
           <ContactCard
