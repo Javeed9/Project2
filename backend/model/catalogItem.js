@@ -3,7 +3,11 @@ const { default: mongoose } = require("mongoose")
 const catalogItemSchema = new mongoose.Schema({
 	category: String,
 	description: String,
-	imgLink: String
+	img:
+	{
+		data: Buffer,
+		contentType: String
+	}
 });
 
 const catalogItem = mongoose.model('catalogItem', catalogItemSchema);

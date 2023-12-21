@@ -10,7 +10,8 @@ const port = process.env.PORT || 3000
 dotenv.config()
 connectDb()
 
-app.use(express.json({ extended: true })); // Body parser
+app.use(express.json({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 const prices = require('./routes/prices')
 app.use('/prices', prices)

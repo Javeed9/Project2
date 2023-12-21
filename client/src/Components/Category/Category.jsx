@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import CategoryCard from './CategoryCard';
+import useAuth from '../../Shared/Hooks/Auth'
+import { useParams } from 'react-router-dom';
 
 const PhotoUpload = () => {
   const [photos, setPhotos] = useState([]);
-
+  const { isAdmin } = useAuth()
+  const { category } = useParams();
   const uploadHandler = (event) => {
     const file = event.target.files[0];
 
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
-
-      axios.post(import.meta.env.VITE_BACKEND_ROUTE + 'catalog', formData)
+      formData.append('category',category)
+      axios.post(import.meta.env.VITE_BACKEND_ROUTE + 'catalog', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
         .then((res) => {
           setPhotos((prevPhotos) => [res.data, ...prevPhotos]);
         })
@@ -22,20 +30,35 @@ const PhotoUpload = () => {
   };
 
   useEffect(() => {
-    // Additional code to fetch existing photos from the server if needed
-    // Example: axios.get('/photos').then((res) => setPhotos(res.data));
-  }, []); // Empty dependency array ensures this effect runs only once (on mount)
+    const fetchCatalogItems = async () => {
+      try {
+        const response = await axios.get(import.meta.env.VITE_BACKEND_ROUTE + `catalog/${category}`);
+        setPhotos(response.data);
+      } catch (error) {
+        console.error('Error fetching catalog items:', error);
+      }
+    };
+  
+    fetchCatalogItems();
+  }, []);
 
   return (
-    <div>
-      {/* Input for selecting a file */}
-      <input type="file" name="file" onChange={uploadHandler} />
-
-      {/* Display uploaded photos */}
+    <>
       {photos.map((photo, index) => (
-        <img key={index} src={photo.url} alt={`Uploaded ${index}`} />
-      ))}
-    </div>
+        <div className='inline-flex flex-wrap gap-8 justify-evenly m-4'>
+          <CategoryCard
+          key = {index}
+          index = {index}
+          photo = {photo}
+          />
+        </div>
+        ))}
+    { isAdmin && (
+      <form>
+      <input type="file" name="file" onChange={uploadHandler} />
+      </form>
+    )}
+  </>
   );
 };
 
