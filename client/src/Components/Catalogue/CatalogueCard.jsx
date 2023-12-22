@@ -1,15 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function CatalogueCard({ name, imageSrc }) {
   return (
-      <Link to={`category/${name}`}>
-    <div className='box-border p-4 bg-slate-300 transform transition duration-300 ease-in-out hover:scale-110 hover:border-2 hover:border-orange-700 '>
-      <img className='h-80 w-80 object-cover' src={imageSrc} alt="catalougeImage" />
-      <div className='h-2'></div>
-      <h2 className='text-center font-bold'>{name}</h2>
-    </div>
-      </Link>
+    <Link to={`category/${name}`} className="max-w-64 flex mx-3 my-4">
+      <div className="">
+        <img
+          className="w-72 h-72 border border-solid border-gray-300 shadow-lg"
+          style={{
+            boxShadow: "15px 15px 60px #bebebe, -15px -15px 50px #ffffff",
+            borderRadius: "25%",
+          }}
+          src={imageSrc}
+          alt="catalougeImage"
+        />
+        <h2 className="text-center text-lg mt-3 font-bold">{name}</h2>
+      </div>
+    </Link>
   );
 }
 

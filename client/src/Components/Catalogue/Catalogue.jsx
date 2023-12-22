@@ -1,5 +1,5 @@
-import React from 'react'
-import CatalogueCard from './CatalogueCard';
+import React from "react";
+import CatalogueCard from "./CatalogueCard";
 import product1 from "./img/catlogueItem1.jpg";
 import product2 from "./img/catlogueItem2.jpg";
 import product3 from "./img/catlogueItem3.jpg";
@@ -12,64 +12,75 @@ import product9 from "./img/catlogueItem9.jpg";
 import product10 from "./img/catlogueItem10.jpg";
 
 const products = [
-  { 
+  {
     id: 0,
     name: "Necklace",
-    imageSrc: product1
+    imageSrc: product1,
   },
-  { 
+  {
     id: 1,
     name: "Bangles",
-    imageSrc: product2
+    imageSrc: product2,
   },
-  { 
+  {
     id: 2,
     name: "Pendants",
-    imageSrc: product3
+    imageSrc: product3,
   },
-  { 
+  {
     id: 3,
     name: "Chains",
-    imageSrc: product4
+    imageSrc: product4,
   },
-  { 
+  {
     id: 4,
     name: "Earrings",
-    imageSrc: product5
+    imageSrc: product5,
   },
-  { 
+  {
     id: 5,
     name: "Bridal",
-    imageSrc: product6
+    imageSrc: product6,
   },
-  { 
+  {
     id: 6,
     name: "Rings",
-    imageSrc: product7
+    imageSrc: product7,
   },
-  { 
+  {
     id: 7,
     name: "Bracelets",
-    imageSrc: product8
+    imageSrc: product8,
   },
-  { 
+  {
     id: 8,
     name: "Silver Anklets",
-    imageSrc: product9
+    imageSrc: product9,
   },
-  { 
+  {
     id: 9,
     name: "Other Silver",
-    imageSrc: product10
-   },
+    imageSrc: product10,
+  },
 ];
 
 function Catalogue() {
   return (
-    <div className='flex flex-wrap gap-8 justify-evenly m-8'>
-      {products.map(product => <CatalogueCard key={product.id} name={product.name} imageSrc={product.imageSrc}/>)}
-    </div>
-  )
+    <>
+      <h2 className="text-center m-6 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+        JEWELLERY CATLOUGE
+      </h2>
+      <div className="flex flex-wrap justify-evenly">
+        {products.map((product) => (
+          <CatalogueCard
+            key={product.id}
+            name={product.name.toUpperCase()}
+            imageSrc={product.imageSrc}
+          />
+        ))}
+      </div>
+    </>
+  );
 }
 
-export default Catalogue
+export default Catalogue;
