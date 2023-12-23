@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "cd client && npm install && npm run dev && cd .. && cd backend && npm install && npm run dev",
-    "runClient": "cd client && npm run dev",
-    "runBackend": "cd backend && npm run dev",
-    "build": "cd client && npm run bulid && cd .. && cd backend && npm run build"
+    "install": "concurrently \"cd client && npm install\" \"cd backend && npm install\"",
+    "run": "concurrently \"cd client && npm run dev\" \"cd backend && npm run dev\"",
+    "build": "concurrently \"cd client && npm run build\" \"cd backend && npm run build\""
   },
   "author": "",
   "license": "ISC"
