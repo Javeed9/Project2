@@ -6,7 +6,7 @@
   "scripts": {
     "install": "concurrently \"cd client && npm install\" \"cd backend && npm install\"",
     "run": "concurrently \"cd client && npm run dev\" \"cd backend && npm run dev\"",
-    "build": "concurrently \"cd client && npm run build\" \"cd backend && npm run build\""
+    "build": "npm install && concurrently \"cd client && npm run build\" \"cd backend && npm run build\""
   },
   "author": "",
   "license": "ISC",
