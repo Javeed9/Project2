@@ -1,1 +1,14 @@
-{}
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd client && npm install && npm run dev && cd .. && cd backend && npm install && npm run dev",
+    "runClient": "cd client && npm run dev",
+    "runBackend": "cd backend && npm run dev",
+    "build": "cd client && npm run bulid && cd .. && cd backend && npm run build"
+  },
+  "author": "",
+  "license": "ISC"
+}
